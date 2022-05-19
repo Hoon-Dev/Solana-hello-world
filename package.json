@@ -19,5 +19,8 @@
   "homepage": "https://github.com/Hoon-Dev/Solana-hello-world#readme",
   "devDependencies": {
     "typescript": "^4.6.4"
+  },
+  "dependencies": {
+    "@types/node": "^17.0.34"
   }
 }
