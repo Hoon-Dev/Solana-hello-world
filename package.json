@@ -1,0 +1,23 @@
+{
+  "name": "solana-hello-world",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start:client": "tsc && node dist/index.js",
+    "build:contract": "cargo build-bpf --manifest-path=./src/contract/Cargo.toml --bpf-out-dir=dist/contract"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Hoon-Dev/Solana-hello-world.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Hoon-Dev/Solana-hello-world/issues"
+  },
+  "homepage": "https://github.com/Hoon-Dev/Solana-hello-world#readme",
+  "devDependencies": {
+    "typescript": "^4.6.4"
+  }
+}
