@@ -12,6 +12,9 @@ export class SolanaConfig {
   private configContent: ConfigContent = DEFAULT_CONFIG;
   private static _instance: SolanaConfig;
 
+  /**
+   * 싱글턴 인스턴스 반환 함수
+   */
   public static getInstance(): SolanaConfig {
     if(__dirname !== undefined) {
       SolanaConfig._instance = new SolanaConfig();
@@ -19,6 +22,10 @@ export class SolanaConfig {
     return SolanaConfig._instance as SolanaConfig;
   }
 
+  /**
+   * yaml 컨텐츠를 컨피그 클래스로 구조화하는 함수
+   * @param content yaml 컨텐츠 내용
+   */
   public set(content: string): void {
     const splitedContent = content.split("\n");
     if(splitedContent.length !== 0) {
@@ -52,6 +59,10 @@ export class SolanaConfig {
     console.log(this.configContent);
   }
   
+  /**
+   * 키 값을 이용해 컨피그 내용 가져오는 함수
+   * @param key 가져올 컨피그 키 값
+   */
   public get<Type extends keyof ConfigContent>(key: Type): ConfigContent[Type] {
     return this.configContent[key];
   }
