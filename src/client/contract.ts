@@ -18,9 +18,9 @@ export class Contract {
     const rpcUrl = await getRpcUrl();
     try {
       const connection = new Connection(rpcUrl, "confirmed");
-      const version = await connection.getVersion();
+      const {"solana-core": version} = await connection.getVersion();
       console.log(`
-클러스터 연결 성공
+클러스터 연결 성공!
 - RPC URL: ${rpcUrl}
 - version: ${version}
 `);
