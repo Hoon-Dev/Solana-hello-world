@@ -14,7 +14,10 @@ export async function getConfig(): Promise<SolanaConfig> {
   );
 
   const solanaConfig = SolanaConfig.getInstance();
-  const configContent = await fs.promises.readFile(CONFIG_FILE_PATH, {encoding: "utf-8"});
-  solanaConfig.set(configContent);
+  try {
+    const configContent = await fs.promises.readFile(CONFIG_FILE_PATH, {encoding: "utf-8"});
+    solanaConfig.set(configContent);
+  }
+  catch(e) {}
   return solanaConfig;
 }
