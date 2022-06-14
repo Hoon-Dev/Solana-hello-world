@@ -16,7 +16,7 @@ export class SolanaConfig {
    * 싱글턴 인스턴스 초기화 여부
    */
    public static get initialized(): boolean {
-    return SolanaConfig._instance === undefined;
+    return SolanaConfig._instance !== undefined;
   }
 
   /**
