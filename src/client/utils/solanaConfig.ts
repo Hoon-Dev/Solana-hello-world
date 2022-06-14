@@ -13,6 +13,13 @@ export class SolanaConfig {
   private static _instance: SolanaConfig;
 
   /**
+   * 싱글턴 인스턴스 초기화 여부
+   */
+   public static get initialized(): boolean {
+    return SolanaConfig._instance === undefined;
+  }
+
+  /**
    * 싱글턴 인스턴스 반환 함수
    */
   public static getInstance(): SolanaConfig {
