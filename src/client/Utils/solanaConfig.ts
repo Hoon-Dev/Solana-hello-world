@@ -27,6 +27,7 @@ export class SolanaConfig {
    * @param content yaml 컨텐츠 내용
    */
   public set(content: string): void {
+    content = content.replace(/"|'/g, "");
     const splitedContent = content.split("\n");
     if(splitedContent.length !== 0) {
       this.configContent = splitedContent.reduce<ConfigContent>((acc, cur, idx) => {
