@@ -1,1 +1,6 @@
-console.log("hello world!");
+import {Contract} from "./contract";
+
+(async function main() {
+  const contract = new Contract();
+  await contract.clusterHealthCheck();
+})();
