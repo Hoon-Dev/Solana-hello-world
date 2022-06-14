@@ -64,6 +64,6 @@ export class SolanaConfig {
    * @param key 가져올 컨피그 키 값
    */
   public get<Type extends keyof ConfigContent>(key: Type): ConfigContent[Type] {
-    return this.configContent[key];
+    return this.configContent[key] ? this.configContent[key]: "";
   }
 }
