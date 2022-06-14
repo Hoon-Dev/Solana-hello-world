@@ -51,12 +51,11 @@ export class SolanaConfig {
             acc[configRawKey] = configRawValue;
           }
         } catch(e) {
-          console.log("CAN'T_PARSE");
+          console.warn("CAN'T_PARSE");
         }
         return acc;
       }, DEFAULT_CONFIG);
     }
-    console.log(this.configContent);
   }
   
   /**
