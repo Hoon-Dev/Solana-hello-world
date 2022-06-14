@@ -16,7 +16,7 @@ export class SolanaConfig {
    * 싱글턴 인스턴스 반환 함수
    */
   public static getInstance(): SolanaConfig {
-    if(__dirname !== undefined) {
+    if(SolanaConfig._instance !== undefined) {
       SolanaConfig._instance = new SolanaConfig();
     }
     return SolanaConfig._instance as SolanaConfig;
