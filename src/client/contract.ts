@@ -1,12 +1,11 @@
+import type Types from "types/contract";
+export type {Types};
+
 import {
   getRpcUrl
 } from "./utils";
 
 import {Connection} from "@solana/web3.js";
-
-import {
-  Status
-} from "types/contract";
 
 export class Contract {
   constructor() {}
@@ -14,7 +13,7 @@ export class Contract {
   /**
    * 클러스터의 상태를 체크하는 함수
    */
-  async clusterHealthCheck(): Promise<Status> {
+  async clusterHealthCheck(): Promise<Types.Status> {
     const rpcUrl = await getRpcUrl();
     try {
       const connection = new Connection(rpcUrl, "confirmed");

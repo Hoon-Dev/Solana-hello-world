@@ -1,5 +1,7 @@
-export type SUCCESS = true;
+declare module Contract {
+  type SUCCESS = true;
+  type FAIL = false;  
+  type Status = SUCCESS | FAIL;
+}
 
-export type FAIL = false;
-
-export type Status = SUCCESS | FAIL;
+export default Contract;
