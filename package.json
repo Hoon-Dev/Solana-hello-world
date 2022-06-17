@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "start:client": "tsc && node dist/client/index.js",
-    "build:contract": "cargo build-bpf --manifest-path=./src/contract/Cargo.toml --bpf-out-dir=dist/contract"
+    "build:contract": "cargo build-bpf --manifest-path=./src/contract/Cargo.toml --bpf-out-dir=dist/contract",
+    "deploy:contract": "solana program deploy ./dist/contract/solana_hello_world.so"
   },
   "repository": {
     "type": "git",
