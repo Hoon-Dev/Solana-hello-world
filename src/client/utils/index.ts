@@ -40,7 +40,7 @@ export async function getRpcUrl(): Promise<string> {
 /**
  * 실행 컴퓨터에서 솔라나 지불을 담당할 키 쌍 가져오는 함수
  */
-export async function getPayer(): Promise<Keypair> {
+export async function getLocalkeypair(): Promise<Keypair> {
   const secretKeyFilePath = (await getConfig()).get("keypair_path");
   try {
     return createKeypairFromFile(secretKeyFilePath);
