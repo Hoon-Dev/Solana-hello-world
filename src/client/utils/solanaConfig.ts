@@ -41,6 +41,7 @@ export class SolanaConfig {
         try {
           const configRawKey = cur.split(":", 1)[0].trim();
           const configRawValue = cur.substring(cur.indexOf(configRawKey)+configRawKey.length+1, cur.length).trim();
+          const isCorrectFormat = (cur.split(":").length !== 1);
           
           if(cur.startsWith(" ") === true) {
             const accKeys = Object.keys(acc);
@@ -53,13 +54,13 @@ export class SolanaConfig {
 
             acc[lastKey] = {
               ...lastRaw,
-              configRawKey: configRawValue
+              [configRawKey]: configRawValue
             }
-          } else if(configRawValue !== '') {
+          } else if(isCorrectFormat) {
             acc[configRawKey] = configRawValue;
           }
         } catch(e) {
-          console.warn("CAN'T_PARSE");
+          console.warn(`CANNOT_PARSE_${idx}_IDX_RAW`);
         }
         return acc;
       }, DEFAULT_CONFIG);
