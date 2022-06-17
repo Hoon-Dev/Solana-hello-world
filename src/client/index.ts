@@ -1,6 +1,11 @@
-import {Contract} from "./contract";
+import {ContractDriver} from "./contractDriver";
+import {
+  getRpcUrl
+} from "./utils";
 
 (async function main() {
-  const contract = new Contract();
-  await contract.clusterHealthCheck();
+  const cd = new ContractDriver();
+
+  const rpcUrl = await getRpcUrl();
+  await cd.connectToCluster(rpcUrl);
 })();

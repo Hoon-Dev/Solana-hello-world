@@ -1,6 +1,7 @@
-declare module Contract {
+declare module ContractDriver {
   type SUCCESS = true;
-  type FAIL = false;  
+  type FAIL = false;
+
   type Status = SUCCESS | FAIL;
 }
 
