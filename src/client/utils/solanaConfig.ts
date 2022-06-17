@@ -1,6 +1,6 @@
 const DEFAULT_CONFIG = {
-  "json_rpc_url": '',
-  "keypair_path": '',
+  "json_rpc_url": "",
+  "keypair_path": "",
 }
 
 export type ConfigContent = {[key: string]: string | {[key: string]: string}} & typeof DEFAULT_CONFIG;
@@ -34,16 +34,16 @@ export class SolanaConfig {
    * @param content yaml 컨텐츠 내용
    */
   public set(content: string): void {
-    content = content.replace(/"|'/g, '');
-    const splitedContent = content.split('\n');
+    content = content.replace(/"|'/g, "");
+    const splitedContent = content.split("\n");
     if(splitedContent.length !== 0) {
       this.configContent = splitedContent.reduce<ConfigContent>((acc, cur, idx) => {
         try {
-          const configRawKey = cur.split(':', 1)[0].trim();
+          const configRawKey = cur.split(":", 1)[0].trim();
           const configRawValue = cur.substring(cur.indexOf(configRawKey)+configRawKey.length+1, cur.length).trim();
-          const isCorrectFormat = (cur.split(':').length !== 1);
+          const isCorrectFormat = (cur.split(":").length !== 1);
           
-          if(cur.startsWith(' ') === true) {
+          if(cur.startsWith(" ") === true) {
             const accKeys = Object.keys(acc);
             const lastKey = accKeys[accKeys.length - 1];
             let lastRaw = acc[lastKey];
@@ -72,6 +72,6 @@ export class SolanaConfig {
    * @param key 가져올 컨피그 키 값
    */
   public get<Type extends keyof ConfigContent>(key: Type): ConfigContent[Type] {
-    return this.configContent[key] ? this.configContent[key]: '';
+    return this.configContent[key] ? this.configContent[key]: "";
   }
 }
