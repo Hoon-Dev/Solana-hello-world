@@ -8,6 +8,7 @@ import {
 
 export class ContractDriver {
   private connection: Connection | undefined;
+  private payer: Keypair | undefined;
 
   constructor() {}
 
@@ -35,6 +36,6 @@ export class ContractDriver {
    * 컨트랙트 실행에 지불자를 지정하는 함수
    */
   setPayer(keypair: Keypair) {
-    
+    this.payer = keypair;
   }
 }

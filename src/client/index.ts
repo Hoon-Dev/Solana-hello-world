@@ -1,6 +1,7 @@
 import {ContractDriver} from "./contractDriver";
 import {
-  getRpcUrl
+  getRpcUrl,
+  getPayer
 } from "./utils";
 
 (async function main() {
@@ -8,4 +9,7 @@ import {
 
   const rpcUrl = await getRpcUrl();
   await cd.connectToCluster(rpcUrl);
+
+  const executorKeypair = await getPayer();
+  cd.setPayer(executorKeypair);
 })();
