@@ -2,6 +2,7 @@ import os from "os";
 import fs from "fs";
 import path from "path";
 
+import Config from "../config";
 import {SolanaConfig} from "./solanaConfig";
 import {Keypair} from "@solana/web3.js";
 
@@ -45,7 +46,7 @@ export async function getLocalkeypair(): Promise<Keypair> {
   try {
     return createKeypairFromFile(secretKeyFilePath);
   } catch(e) {
-    throw "CANNOT_CREATE_LOCAL_KEYPAIR"
+    throw Config.error.CANNOT_CREATE_LOCAL_KEYPAIR;
   }
 }
 
@@ -58,6 +59,6 @@ export async function createKeypairFromFile(secretKeyFilePath: string): Promise<
     const secretKey = await fs.promises.readFile(secretKeyFilePath, {encoding: "utf-8"});
     return Keypair.fromSecretKey(Uint8Array.from(JSON.parse(secretKey))); 
   } catch(e) {
-    throw "CANNOT_READ_SECRETKEY";
+    throw Config.error.CANNOT_READ_SECRETKEY;
   }
 }

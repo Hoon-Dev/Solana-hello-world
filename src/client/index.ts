@@ -16,7 +16,7 @@ import Config from "./config";
   
     const executorKeypair = await getLocalkeypair();
     cd.setPayer(executorKeypair);
-  } catch(e) {
-
+  } catch(errorMessage) {
+    console.log(errorMessage);
   }
 })();
