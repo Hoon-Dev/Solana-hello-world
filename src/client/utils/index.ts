@@ -45,7 +45,7 @@ export async function getLocalkeypair(): Promise<Keypair> {
   try {
     return createKeypairFromFile(secretKeyFilePath);
   } catch(e) {
-    throw "CANNOT_CREATE_KEYPAIR"
+    throw "CANNOT_CREATE_LOCAL_KEYPAIR"
   }
 }
 
