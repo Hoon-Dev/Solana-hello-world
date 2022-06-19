@@ -1,15 +1,22 @@
 import {ContractDriver} from "./contractDriver";
 import {
   getRpcUrl,
-  getPayer
+  getLocalkeypair,
+  createKeypairFromFile
 } from "./utils";
+import Config from "./config";
 
 (async function main() {
-  const cd = new ContractDriver();
+  try {
+    const {publicKey} = await createKeypairFromFile(Config.path.PROGRAM_KEYPAIR_PATH);
+    const cd = new ContractDriver(publicKey);
+  
+    const rpcUrl = await getRpcUrl();
+    await cd.connectToCluster(rpcUrl);
+  
+    const executorKeypair = await getLocalkeypair();
+    cd.setPayer(executorKeypair);
+  } catch(e) {
 
-  const rpcUrl = await getRpcUrl();
-  await cd.connectToCluster(rpcUrl);
-
-  const executorKeypair = await getPayer();
-  cd.setPayer(executorKeypair);
+  }
 })();
